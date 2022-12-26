@@ -14,7 +14,7 @@ import java.util.List;
 public class EmployeeDAOHibernateImpl implements EmployeeDAO{
 
 
-    private final EntityManager entityManager;
+    private EntityManager entityManager;
 
     @Autowired
     public EmployeeDAOHibernateImpl(EntityManager theEntityManager){
@@ -25,9 +25,7 @@ public class EmployeeDAOHibernateImpl implements EmployeeDAO{
     @Transactional
     public List<Employee> findAll(){
         Session currentSession = entityManager.unwrap(Session.class);
-        Query<Employee> theQuery = currentSession.createQuery("from Employee", Employee.class);
-
-        List<Employee> employees = theQuery.getResultList();
-        return employees;
+        Query theQuery = currentSession.createQuery("from Employee", Employee.class);
+        return theQuery.getResultList();
     }
 }
