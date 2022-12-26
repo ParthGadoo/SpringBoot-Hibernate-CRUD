@@ -1,13 +1,13 @@
-package com.parth.springboot.crud.dao;
+package com.parth.springboot.crud.service;
 
 import com.parth.springboot.crud.entity.Employee;
 
 import java.util.List;
 
-public interface EmployeeDAO {
+public interface EmployeeService {
     public List<Employee> findAll();
     public Employee findById(int theId);
     public void save(Employee theEmployee);
 
-    public void deleteId(int theId);
+    public void deleteById(int theId);
 }
